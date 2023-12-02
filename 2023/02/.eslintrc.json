@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["eslint:all", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "capitalized-comments": "off",
+    "complexity": "off",
+    "func-names": ["warn", "as-needed"],
+    "id-length": "off",
+    "max-lines-per-function": "off",
+    "max-statements": "off",
+    "multiline-comment-style": "off",
+    "no-console": "off",
+    "no-empty-function": "warn",
+    "no-magic-numbers": "off",
+    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }],
+    "no-undefined": "warn",
+    "no-unused-vars": 1,
+    "no-var": "warn",
+    "one-var": ["warn", "never"],
+    "prefer-const": "warn",
+    "radix": ["warn", "as-needed"],
+    "require-unicode-regexp": "warn",
+    "sort-keys": "off",
+    "strict": ["warn", "global"]
+  }
+}
