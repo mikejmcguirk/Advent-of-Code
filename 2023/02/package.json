@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "eslint-config-prettier": "^9.0.0"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.55.0",
+    "globals": "^13.23.0"
+  }
+}
