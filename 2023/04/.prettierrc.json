@@ -1,0 +1,30 @@
+{
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "printWidth": 99,
+  "semi": true,
+  "bracketSpacing": true,
+  "useTabs": false,
+  "endOfLine": "lf",
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "requirePragma": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": ["*.html", "*.css"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}
