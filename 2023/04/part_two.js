@@ -119,8 +119,8 @@ rl.on("line", (line) => {
             chances.push(chancesToAdd);
         }
     }
-    totalCards += chances[0];
 
+    totalCards += chances[0];
     chances.shift();
 });
 
