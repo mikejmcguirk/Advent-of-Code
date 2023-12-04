@@ -1,5 +1,7 @@
 // @ts-check
 
+console.time("executionTime");
+
 import fs from "fs";
 
 const zeroASCII = 48;
@@ -21,8 +23,7 @@ const checkWindow = [
     [1, 1],
 ];
 
-const partStarts = [];
-const validCoordinates = new Set();
+let totalPartNumber = 0;
 
 const data = fs.readFileSync("puzzle_input.txt", "utf8");
 const lines = data.split(/\r?\n/u);
@@ -59,59 +60,61 @@ for (let i = 1; i < linesLength; i++) {
                 continue;
             }
 
-            let windowSlide = checkCol - 1;
+            let windowSlideStart = checkCol - 1;
 
             for (;;) {
-                const canMoveLeft = windowSlide >= 0;
+                const canMoveLeft = windowSlideStart >= 0;
 
                 if (!canMoveLeft) {
                     break;
                 }
 
-                const leftNeighbor = lines[checkRow].charCodeAt(windowSlide);
+                const leftNeighbor = lines[checkRow].charCodeAt(windowSlideStart);
                 const leftNeighborIsNumber = isASCIIdigit(leftNeighbor);
 
                 if (!leftNeighborIsNumber) {
                     break;
                 }
 
-                windowSlide -= 1;
+                windowSlideStart -= 1;
             }
 
-            const startCol = windowSlide + 1;
-            const coordToCheck = checkRow * 10000 + startCol;
-            const isNewNumber = !validCoordinates.has(coordToCheck);
+            let windowSlideEnd = checkCol + 1;
 
-            if (isNewNumber) {
-                validCoordinates.add(coordToCheck);
-                partStarts.push([checkRow, startCol]);
+            for (;;) {
+                const canMoveRight = windowSlideEnd >= 0;
+
+                if (!canMoveRight) {
+                    break;
+                }
+
+                const rightNeighbor = lines[checkRow].charCodeAt(windowSlideEnd);
+                const rightNeighborIsNumber = isASCIIdigit(rightNeighbor);
+
+                if (!rightNeighborIsNumber) {
+                    break;
+                }
+
+                windowSlideEnd += 1;
             }
+
+            const startCol = windowSlideStart + 1;
+            const endCol = windowSlideEnd - 1;
+            let thisPart = 0;
+
+            for (let l = startCol; l <= endCol; l++) {
+                thisPart = thisPart * 10 + (lines[checkRow].charCodeAt(l) - zeroASCII);
+
+                const newPeriod = String.fromCharCode(periodASCII);
+                lines[checkRow] =
+                    lines[checkRow].slice(0, l) + newPeriod + lines[checkRow].slice(l + 1);
+            }
+
+            totalPartNumber += thisPart;
         }
     }
-}
-
-let totalPartNumber = 0;
-
-for (let i = 0; i < partStarts.length; i++) {
-    const curStart = partStarts[i];
-    const curRow = curStart[0];
-    const curCol = curStart[1];
-
-    const curLine = Buffer.from(lines[curRow]);
-    let thisPart = curLine[curCol] - zeroASCII;
-
-    for (let j = curCol + 1; j < curLine.length; j++) {
-        const curChar = curLine[j];
-        const isNumber = isASCIIdigit(curChar);
-
-        if (!isNumber) {
-            break;
-        }
-
-        thisPart = thisPart * 10 + (curChar - zeroASCII);
-    }
-
-    totalPartNumber += thisPart;
 }
 
 console.log(totalPartNumber);
+
+console.timeEnd("executionTime");

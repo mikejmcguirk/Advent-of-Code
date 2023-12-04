@@ -1,5 +1,7 @@
 // @ts-check
 
+console.time("executionTime");
+
 import fs from "fs";
 
 const data = fs.readFileSync("puzzle_input.txt", "utf8");
@@ -195,3 +197,5 @@ for (let i = 1; i < linesLength; i++) {
 }
 
 console.log(total);
+
+console.timeEnd("executionTime");
