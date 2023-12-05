@@ -10,6 +10,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "arrow-body-style": "warn",
     "capitalized-comments": "off",
     "complexity": "off",
     "func-names": ["warn", "as-needed"],
