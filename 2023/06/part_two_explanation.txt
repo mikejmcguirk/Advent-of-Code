@@ -1,0 +1,32 @@
+QUADRATIC EQUATIONS
+
+c is the y value where x = 0
+b is the linear term. In our case, time goes down linearly as we hold the button longer
+a is the quadratic term. Our speed goes up by a quadratic amount as we hold the button longer
+
+In a quadratic equation, x is the unknown value
+In our situation, this is a bit unintuitive, because what we want to find is the speed,
+   which should be the quadratic term, so let's work it in a roundabout way
+
+For our application:
+
+let c = distance traveled
+let b = time travelled
+let x = how long we held the button
+
+(b - x) * x = c
+
+This factors to:
+
+bx - x^2 = c
+
+Now let's re-arrange it a bit
+
+-x^2 + bx = c
+-x^2 + bx - c = 0
+
+We almost have a quadratic equation
+Since the first x cannot arbitrarily be negative, we can say that a = -1
+
+Now we can plug this into the quadratic formual in order to get the points of x that are
+greater than zero, meaning our final result will be greater than the record

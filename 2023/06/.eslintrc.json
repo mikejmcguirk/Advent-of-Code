@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:all", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": "warn",
+    "camelcase": "warn",
+    "capitalized-comments": "off",
+    "complexity": "off",
+    "func-names": ["warn", "as-needed"],
+    "id-length": "off",
+    "line-comment-position": "off",
+    "max-depth": "off",
+    "max-lines-per-function": "off",
+    "max-params": "off",
+    "max-statements": "off",
+    "multiline-comment-style": "off",
+    "new-cap": "warn",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-empty-function": "warn",
+    "no-inline-comments": "off",
+    "no-magic-numbers": "off",
+    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }],
+    "no-shadow": ["warn", { "builtinGlobals": true }],
+    "no-ternary": "off",
+    "no-undefined": "warn",
+    "no-unused-vars": 1,
+    "no-var": "warn",
+    "one-var": ["warn", "never"],
+    "prefer-const": "warn",
+    "prefer-destructuring": "off",
+    "prefer-template": "warn",
+    "radix": ["warn", "as-needed"],
+    "require-unicode-regexp": "warn",
+    "sort-imports": "warn",
+    "sort-keys": "off",
+    "strict": ["warn", "global"]
+  }
+}
