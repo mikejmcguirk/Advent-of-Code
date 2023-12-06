@@ -1,0 +1,14 @@
+collapse ranges?
+
+iterate one seed at a time, this way, once the seed is updated, we can advance to
+the next category. this removes the need for the bookkeeping array, and we can use splits
+more easily
+
+use negative numbers to indicate that a seed is updated
+
+we should be able to call each split recursively without having to recollect them. waste
+
+can we do intersections based off of ranges?
+
+You don't actually even need recursion because you just hold
+the good range and the bad range line to line
