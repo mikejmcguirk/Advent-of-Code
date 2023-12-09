@@ -2,7 +2,7 @@
 
 import fs from "fs";
 
-const data = fs.readFileSync("puzzle_input.txt", "utf8");
+const data = fs.readFileSync("test_data.txt", "utf8");
 const lines = data.split(/\r?\s*\n/u).filter((line) => line !== "");
 const linesLength = lines.length;
 
