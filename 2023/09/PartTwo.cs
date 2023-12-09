@@ -5,23 +5,16 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace PartTwo
-{
-    public class Program
-    {
-        public static void Main()
-        {
+namespace PartTwo {
+    public class Program {
+        public static void Main() {
             string input = "puzzle_input.txt";
-            List<string> lines = new();
 
-            try
-            {
+            try {
                 long totalNewNumbers = File.ReadAllLines(input)
                     .Where(line => !string.IsNullOrWhiteSpace(line))
-                    .Aggregate(0L, (total, line) =>
-                    {
+                    .Aggregate(0L, (total, line) => {
                         List<long> lineParts = Regex.Split(line, @"\s+")
-                            .Where(s => !string.IsNullOrWhiteSpace(s))
                             .Select(s => long.Parse(s.Trim(), CultureInfo.InvariantCulture))
                             .ToList();
 
@@ -33,19 +26,14 @@ namespace PartTwo
 
                 Console.WriteLine("Total new numbers: {0}", totalNewNumbers);
             }
-            catch (FileNotFoundException)
-            {
+            catch (FileNotFoundException) {
                 Console.WriteLine("File not found: {0}", input);
                 return;
             }
         }
 
-        private static long GetDiff(List<long> numbers)
-        {
-            bool allZeroes = numbers.All(num => num == 0);
-
-            if (allZeroes)
-            {
+        private static long GetDiff(List<long> numbers) {
+            if (numbers.All(num => num == 0)) {
                 return 0;
             }
 
