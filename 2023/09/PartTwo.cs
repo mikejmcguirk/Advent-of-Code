@@ -25,8 +25,8 @@ namespace PartTwo
                             .Select(s => long.Parse(s.Trim(), CultureInfo.InvariantCulture))
                             .ToList();
 
-                        // long newFirstNumber = lineParts[0] - GetDiff(lineParts); // Part Two
-                        long newFirstNumber = lineParts[^1] + GetDiff(lineParts); // Part One
+                        long newFirstNumber = lineParts[0] - GetDiff(lineParts); // Part Two
+                        // long newFirstNumber = lineParts[^1] + GetDiff(lineParts); // Part One
 
                         return total + newFirstNumber;
                     });
@@ -51,7 +51,8 @@ namespace PartTwo
 
             List<long> diffs = numbers.Zip(numbers.Skip(1), (a, b) => b - a).ToList();
 
-            return diffs[^1] + GetDiff(diffs); // Part One
+            return diffs[0] - GetDiff(diffs); //Part Two
+            // return diffs[^1] + GetDiff(diffs); // Part One
         }
 
     }
