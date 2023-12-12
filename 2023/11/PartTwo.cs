@@ -38,15 +38,10 @@ namespace AdventOfCode {
             long totDistance = galaxies
                 .SelectMany((startGal, i) => galaxies.Skip(i + 1)
                     .Select(endGal => {
-                        int startRow = startGal.Item1;
-                        int startCol = startGal.Item2;
-                        int endRow = endGal.Item1;
-                        int endCol = endGal.Item2;
-
-                        int minRow = Math.Min(endRow, startRow);
-                        int maxRow = Math.Max(endRow, startRow);
-                        int minCol = Math.Min(endCol, startCol);
-                        int maxCol = Math.Max(endCol, startCol);
+                        int minRow = Math.Min(endGal.Item1, startGal.Item1);
+                        int maxRow = Math.Max(endGal.Item1, startGal.Item1);
+                        int minCol = Math.Min(endGal.Item2, startGal.Item2);
+                        int maxCol = Math.Max(endGal.Item2, startGal.Item2);
 
                         int rowCrosses = emptyRows.Count(cur => cur > minRow && cur < maxRow);
                         int colCrosses = emptyCols.Count(cur => cur > minCol && cur < maxCol);
@@ -56,8 +51,8 @@ namespace AdventOfCode {
                         long rowExpansion = rowCrosses * (expansionFactor - 1);
                         long colExpansion = colCrosses * (expansionFactor - 1);
 
-                        long rowDistance = Math.Abs(endRow - startRow) + rowExpansion;
-                        long colDistance = Math.Abs(endCol - startCol) + colExpansion;
+                        long rowDistance = maxRow - minRow + rowExpansion;
+                        long colDistance = maxCol - minCol + colExpansion;
 
                         return rowDistance + colDistance;
                     }))
