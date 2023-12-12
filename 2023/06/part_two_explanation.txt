@@ -28,5 +28,5 @@ Now let's re-arrange it a bit
 We almost have a quadratic equation
 Since the first x cannot arbitrarily be negative, we can say that a = -1
 
-Now we can plug this into the quadratic formual in order to get the points of x that are
+Now we can plug this into the quadratic formuala in order to get the points of x that are
 greater than zero, meaning our final result will be greater than the record
