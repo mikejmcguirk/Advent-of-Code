@@ -48,16 +48,32 @@ namespace AdventOfCode {
                         int minCol = Math.Min(endCol, startCol);
                         int maxCol = Math.Max(endCol, startCol);
 
-                        int rowCrosses = emptyRows.Count(cur => cur > minRow && cur < maxRow);
-                        int colCrosses = emptyCols.Count(cur => cur > minCol && cur < maxCol);
+                        int rowCrosses = emptyRows.Aggregate(0, (acc, cur) => {
+                            if (cur > minRow && cur < maxRow) {
+                                return acc + 1;
+                            }
+
+                            return acc;
+                        });
+
+                        int colCrosses = emptyCols.Aggregate(0, (acc, cur) => {
+                            if (cur > minCol && cur < maxCol) {
+                                return acc + 1;
+                            }
+
+                            return acc;
+                        });
 
                         long expansionFactor = 1000000;
+                        long expansionUnits = expansionFactor - 1;
 
-                        long rowExpansion = rowCrosses * (expansionFactor - 1);
-                        long colExpansion = colCrosses * (expansionFactor - 1);
+                        long rowExpansion = rowCrosses * expansionUnits;
+                        long colExpansion = colCrosses * expansionUnits;
 
-                        long rowDistance = Math.Abs(endRow - startRow) + rowExpansion;
-                        long colDistance = Math.Abs(endCol - startCol) + colExpansion;
+                        long rowDistance = Math.Abs(endRow - startRow);
+                        rowDistance += rowExpansion;
+                        long colDistance = Math.Abs(endCol - startCol);
+                        colDistance += colExpansion;
 
                         return rowDistance + colDistance;
                     }))
