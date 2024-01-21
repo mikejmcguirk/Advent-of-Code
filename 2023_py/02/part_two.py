@@ -16,9 +16,7 @@ def check_game(line):
 
         min_cubes[color] = max(min_cubes[color], int_count)
 
-    power = reduce(lambda x, y: x * y, min_cubes.values(), 1)
-
-    return power
+    return reduce(lambda x, y: x * y, min_cubes.values(), 1)
 
 
 powers = [check_game(line) for line in lines]
