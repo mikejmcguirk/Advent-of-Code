@@ -1,17 +1,15 @@
-lines = [line.strip() for line in open("test_data.txt")]
+import math as m
+
+lines = [line.strip() for line in open("puzzle_input.txt")]
 time_info = lines[0].split(":")[1].strip()
 dist_info = lines[1].split(":")[1].strip()
-time = 0
-dist = 0
 
-for c in range(len(time_info)):
-    this_char = time_info[c]
+a = -1
+b = int("".join([info.strip() for info in time_info]))
+c = int("".join([info.strip() for info in dist_info])) * -1
 
-    if this_char.isdigit():
-        time = time * 10 + int(this_char)
+discriminant = m.sqrt(b**2 - 4 * a * c)
+root_1 = m.ceil((-b + discriminant) / (2 * a))
+root_2 = (-b - discriminant) // (2 * a)
 
-for c in range(len(dist_info)):
-    this_char = dist_info[c]
-
-    if this_char.isdigit():
-        dist = dist * 10 + int(this_char)
+print(root_2 - root_1 + 1)

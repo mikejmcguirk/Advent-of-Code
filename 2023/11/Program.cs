@@ -1,8 +1,11 @@
 using System;
 
-namespace AdventOfCode {
-    public class Program {
-        public static void Main() {
+namespace AdventOfCode
+{
+    public class Program
+    {
+        public static void Main()
+        {
             string testData = "test_data.txt";
             string puzzleInput = "puzzle_input.txt";
             string inputFile = puzzleInput;

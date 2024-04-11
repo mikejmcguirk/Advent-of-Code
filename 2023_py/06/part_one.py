@@ -22,5 +22,6 @@ def get_winning_presses(race):
     return winning_presses
 
 
-power_presses = reduce(lambda x, y: x * y, map(get_winning_presses, races))
+press_counts = map(get_winning_presses, races)
+power_presses = reduce(lambda x, y: x * y, press_counts)
 print(power_presses)

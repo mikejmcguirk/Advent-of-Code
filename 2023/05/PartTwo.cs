@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 /*
  * My first attempt at writing this in Javascript failed because its number type could not
  * contain the large numbers in the puzzle input
@@ -33,7 +34,8 @@ namespace PartTwo
 
             string[] getSeeds = lines[0].Split(":");
             List<long> seeds = new();
-            seeds = Regex.Split(getSeeds[1], @"\s+")
+            seeds = Regex
+                .Split(getSeeds[1], @"\s+")
                 .Where(s => !string.IsNullOrWhiteSpace(s))
                 .Select(long.Parse)
                 .ToList();
@@ -85,7 +87,8 @@ namespace PartTwo
                 }
 
                 List<long> thisMap = new();
-                thisMap = Regex.Split(thisLine, @"\s+")
+                thisMap = Regex
+                    .Split(thisLine, @"\s+")
                     .Where(s => !string.IsNullOrWhiteSpace(s))
                     .Select(long.Parse)
                     .ToList();
@@ -149,9 +152,7 @@ namespace PartTwo
 
             restoreAbs();
 
-            long lowestLocation = theseSeeds
-                .Where(seed => seed.Count > 0)
-                .Min(seed => seed[0]);
+            long lowestLocation = theseSeeds.Where(seed => seed.Count > 0).Min(seed => seed[0]);
 
             return lowestLocation;
         }

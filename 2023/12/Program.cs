@@ -24,7 +24,7 @@ namespace AdventOfCode
             Console.WriteLine("========");
             Console.WriteLine();
 
-            PartTwo.Run(inputFile);
+            // PartTwo.Run(inputFile);
 
             Console.WriteLine();
         }
