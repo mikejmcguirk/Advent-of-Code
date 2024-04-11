@@ -15,5 +15,4 @@ def calc_paper(line):
 
 
 gifts = map(calc_paper, lines)
-total_paper = sum(gifts)
-print(total_paper)
+print(sum(gifts))

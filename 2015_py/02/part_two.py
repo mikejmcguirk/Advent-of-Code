@@ -11,5 +11,4 @@ def calc_ribbon(line):
 
 
 gifts = map(calc_ribbon, lines)
-total_ribbon = sum(gifts)
-print(total_ribbon)
+print(sum(gifts))
