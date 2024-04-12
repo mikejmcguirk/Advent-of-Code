@@ -1,5 +1,5 @@
 lines = [line.strip() for line in open("puzzle_input.txt")]
-lights = [[False for x in range(1000)] for y in range(1000)]
+lights = [[0 for x in range(1000)] for y in range(1000)]
 
 for line in lines:
     line_parts = line.split()
