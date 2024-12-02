@@ -2,7 +2,6 @@ lines = [line.strip() for line in open("puzzle_input.txt")]
 
 left_list = []
 right_list = []
-
 for line in lines:
     left_num, right_num = line.split()
     left_list.append(int(left_num))
