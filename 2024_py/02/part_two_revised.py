@@ -9,16 +9,16 @@ def check_safe(nums):
         if abs(delta) > 3 or delta == 0:
             return False
 
-        new_trend = 1 if delta > 0 else -1
-        if trend != 0 and new_trend != trend:
+        this_trend = 1 if delta > 0 else -1
+        if trend != 0 and this_trend != trend:
             return False
         else:
-            trend = new_trend
+            trend = this_trend
 
     return True
 
 
-def process_line(acc, line):
+def check_line(acc, line):
     nums = list(map(int, line.split()))
     if len(nums) < 2 or check_safe(nums):
         return acc + 1
@@ -32,5 +32,5 @@ def process_line(acc, line):
 
 
 lines = [line.strip() for line in open("puzzle_input.txt")]
-safe_levels = reduce(process_line, lines, 0)
+safe_levels = reduce(check_line, lines, 0)
 print(safe_levels)
